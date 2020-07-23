@@ -18,11 +18,14 @@ def read_from_file():
             init_list_dict(dirpath + "\\" + file_name, ind)
 
 
+def ignore_char(sentence):
+    return re.sub('[^a-z]+', '', sentence.lower())
+
+
 def init_data():
     for sentence in range(len(listAllSentences)):
-        res = [listAllSentences[sentence]["completed_sentence"][i: j]
-               for i in range(len(listAllSentences[sentence]["completed_sentence"]))
-               for j in range(i + 1, len(listAllSentences[sentence]["completed_sentence"]) + 1)]
+        sentene_fixed = ignore_char(listAllSentences[sentence]["completed_sentence"])
+        res = [sentene_fixed[i: j] for i in range(len(sentene_fixed)) for j in range(i + 1, len(sentene_fixed) + 1)]
 
         for substring in range(len(res)):
             dict.setdefault(res[substring], set()).add(sentence)
