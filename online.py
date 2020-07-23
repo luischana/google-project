@@ -22,8 +22,16 @@ def replace_str(str, listSentences):
                             listSentences.append({"sentence": k, "score": score})
     return listSentences
 
+
 def add_str(str, listSentences):
-    return
+    for char in string.printable[10:65]:
+        for j in range(len(str) + 1):
+            if dict.get(str[:j] + char + str[j:]):
+                for k in dict[str[:j] + char + str[j:]]:
+                    score = len(str) * 2 - 10 + 2 * j if j < 4 else len(str) * 2 - 2
+                    if check_list(listSentences, k, score):
+                        listSentences.append({"sentence": k, "score": score})
+    return listSentences
 
 def remove_str(str, listSentences):
     return
