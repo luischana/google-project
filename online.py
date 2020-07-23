@@ -1,4 +1,4 @@
-from offline import dict,listAllSentences
+from offline import dict, dictFile, listAllSentences
 from auto_complete_data import AutocompleteData
 import string
 
@@ -48,7 +48,7 @@ def remove_str(str, listSentences):
 
 def five_sentences(listSentences):
     return [AutocompleteData(listAllSentences[listSentences[x]["sentence"]]["completed_sentence"],
-                             listAllSentences[listSentences[x]["sentence"]]["source_text"],
+                             dictFile[listAllSentences[listSentences[x]["sentence"]]["source_text"]],
                              listAllSentences[listSentences[x]["sentence"]]["offset"],
                              listSentences[x]["score"]) for x in range(len(listSentences)) if x < 5]
 
