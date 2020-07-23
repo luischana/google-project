@@ -33,8 +33,17 @@ def add_str(str, listSentences):
                         listSentences.append({"sentence": k, "score": score})
     return listSentences
 
+
 def remove_str(str, listSentences):
-    return
+    for j in range(len(str)):
+        if dict.get(str[:j] + str[j + 1:]):
+            if str[:j] + str[j + 1:] != str:
+                for k in dict[str[:j] + str[j + 1:]]:
+                    score = len(str) * 2 - 10 + 2 * j if j < 4 else len(str) * 2 - 2
+                    if check_list(listSentences, k, score):
+                        listSentences.append({"sentence": k, "score": score})
+    return listSentences
+
 
 def get_best_k_completions(str):
     listSentences = []
