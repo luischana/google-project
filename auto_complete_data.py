@@ -1,5 +1,5 @@
 class AutocompleteData:
-    def __init(self, completed_sentence, source_text, offset, score):
+    def __init__(self, completed_sentence, source_text, offset, score):
         self.completed_sentence = completed_sentence
         self.source_text = source_text
         self.offset = offset
@@ -10,3 +10,6 @@ class AutocompleteData:
 
     def get_source_text(self):
         return self.source_text
+
+    def get_offset(self):
+        return self.offset
