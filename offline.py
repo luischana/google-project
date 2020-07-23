@@ -4,6 +4,7 @@ listAllSentences = []
 
 with open("about.txt") as the_file:
      allSentences = the_file.read().split("\n")
+
      for i in range(len(allSentences)):
          listAllSentences.append({"completed_sentence": allSentences[i], "source_text": "about.txt", "offset": i})
 
