@@ -13,3 +13,6 @@ class AutocompleteData:
 
     def get_offset(self):
         return self.offset
+
+    def get_score(self):
+        return self.score

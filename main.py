@@ -22,13 +22,12 @@ if __name__ == '__main__':
                 print(f'There are {len((suggestions))} suggestions')
 
                 for i in range(len(suggestions)):
-                    print(f'{i+1}. {suggestions[i].get_completed_sentence()} ({suggestions[i].get_source_text()} {suggestions[i].get_offset()})')
+                    print(f'{i+1}. {suggestions[i].get_completed_sentence()} ({suggestions[i].get_source_text()} {suggestions[i].get_offset()} {suggestions[i].get_score()})')
 
             else:
                 print("There are'nt suggestions")
 
             sentence += input(sentence)
-
 
         else:
             sentence = input("Enter your text:")
